@@ -1,7 +1,7 @@
 Descrição do projeto passo a passo:
 
 Esse projeto faz parte do curso da Alura sobre a aplicação da biblioteca webpack para viabilizar o
-uso do sistemas de módulos do NodeJS em aplicações SPA. Trata-se de uma reaftoração do projeto FetchAPI,
+uso do sistemas de módulos do NodeJS em aplicações SPA. Trata-se de uma refatoração do projeto FetchAPI,
 onde o novo código gera dinamicamente as páginas que antes eram geradas pelos arquivos cadastro-clientes.html
 e edita-clientes.html.
 
@@ -35,7 +35,11 @@ A aplicação está organizada da seguinte maneira:
                                                           inseridos.
 
     - componentes -> cadastro -> cadastro-clientes.js - recebe o "form" criado no "componente-cadastro" pela
-                                                        função "eventoEnvia", que trata onde é monitorado o "click" do botão "Enviar", pegando os dados inseridos nos campos, verifica o cpf com a função "validaCPF" e os envia para cliente.js através da função "cadastrarClientes", que os salva no banco.
+                                                        função "eventoEnvia", que trata onde é monitorado o 
+                                                        "click" do botão "Enviar", pegando os dados inseridos 
+                                                        nos campos, verifica o cpf com a função "validaCPF" e 
+                                                        os envia para cliente.js através da função "cadastrarClientes", 
+                                                        que os salva no banco.
     
 
     - componentes -> edita -> formEdicao.js - de forma semelhante ao componente-cadastro.js, contém o template do
@@ -44,7 +48,14 @@ A aplicação está organizada da seguinte maneira:
                                               em "edita-cliente" que trata os dados alterados.
 
     - componentes -> edita -> edita-cliente.js - a princípio recebe a URL do evento proveniente da pagina pelo 
-                                                 método "window.location" e retira desse objeto o "id" pelo método "searchParams.get". Tendo recebido o "form" criado em "formEdicao.js", ele pega os campos de nome e cpf pelo "querySelector" e os imputa os dados que foram enviados pela função "detalhaCliente" que recebeu o "id" como parâmetro e devolveu os dados do cliente que se deseja alterar. Essa função monitora o evento de "click" do botão e faz o teste de validação deo CPF pelo "validaCPF" e envia os dados para o banco através da função "editaCliente" de "cliente.js", que os salva no banco.
+                                                 método "window.location" e retira desse objeto o "id" pelo método 
+                                                 "searchParams.get". Tendo recebido o "form" criado em "formEdicao.js", 
+                                                 ele pega os campos de nome e cpf pelo "querySelector" e os imputa os 
+                                                 dados que foram enviados pela função "detalhaCliente" que recebeu o 
+                                                 "id" como parâmetro e devolveu os dados do cliente que se deseja alterar. 
+                                                 Essa função monitora o evento de "click" do botão e faz o teste de 
+                                                 validação deo CPF pelo "validaCPF" e envia os dados para o banco através 
+                                                 da função "editaCliente" de "cliente.js", que os salva no banco.
 
     - componentes -> lista -> listagem-cliente.js - tem o papel de exibir as linhas da tabela exibindo os dados dos
                                                     clientes e também os botões de "Editar" e "Excluir". Requisita os
@@ -53,9 +64,11 @@ A aplicação está organizada da seguinte maneira:
                                                     tem o papel de gerar o cabeçalho da tabela, incluindo o botão 
                                                     "Novo Cliente", gerenciar os comandos de edição, que passa o "id"
                                                     do cliente que se deseja alterar no endereço da página de edição,
-                                                    que será capturado pelo "edita-clientes.js", assim como o comandos de exclusão, criando o botão "Excluir" que executa a 
-                                                    função "removeCliente" que recebe o "id" do cliente que se deseja
-                                                    excluir e o repassa para a função "deletaCliente", presente em "cliente.js" que exclui o registro do banco.
+                                                    que será capturado pelo "edita-clientes.js", assim como o comandos 
+                                                    de exclusão, criando o botão "Excluir" que executa a função "removeCliente"
+                                                    que recebe o "id" do cliente que se deseja excluir e o repassa para 
+                                                    a função "deletaCliente", presente em "cliente.js" que exclui o registro 
+                                                    do banco.
     
     - componentes -> valida -> validaCPF.js - contém a função que testa CPFs inválidos e retorna
                                               verdadeiro quando todos os testes retornam 
@@ -79,5 +92,6 @@ As dependências de projeto que foram utilizadas foram basicamente:
     - O bootstrap, reposnsável pelo tratamento visual e estilização da página, e
 
     - O webpack, que gera um pacote de distribuição, juntando todos os módulos em um único
-      js, que o browser consegue entender, fazendo uso de seus plugins "css-loader", "file-loade" e "image-loader" que ajudam na compilação de toda a plicação, fazendo
+      js, que o browser consegue entender, fazendo uso de seus plugins "css-loader", 
+      "file-loade" e "image-loader" que ajudam na compilação de toda a plicação, fazendo
       ainda a minificação do arquivo.
